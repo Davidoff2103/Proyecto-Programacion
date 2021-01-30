@@ -102,6 +102,7 @@ public class Main {
 		System.out.println("//  Se trata del tradicional juego de mesa conocido como 'La Oca'.                                                                                                  //\n"+		//se muestran las instrucciones del juego de la Oca.
 							"//  Ofrece la opción de dos jugadores y la de jugar contra la IA.                                                                                                   //\n" +
 							"//  El juego consiste en ir avanzando en el tablero por turnos hasta llegar al final.                                                                               //\n" +
+							"//  El tablero de juego se muestra entre barras rojas. La posición del jugador 1 se señaliza con una X y, la del jugador 2 o la IA, con una Y.                      //\n" +
 							"//  Hay varias casillas con diferentes tipos de consecuencias, y son las que se exponen a continuación:                                                             //\n" +
 							"//	-	2: casilla de Oca. Se salta a la siguiente casilla con el mismo símbolo y se vuelve a tirar.                                                        //\n" +
 							"//	-	B: casilla de Puente (bridge en inglés). Se salta a la otra casilla con el mismo símbolo (en ambos sentidos) y se vuelve a tirar.                   //\n" +
@@ -113,7 +114,7 @@ public class Main {
 							"//	-	S: casilla de Calavera (skull en inglés). Al caer en esta casilla, se retrocede a la primera casilla y se vuelve a empezar.                         //\n" +
 							"//	-	O: casilla libre. Las casillas representadas con una O están libres y, por lo tanto, no sucede nada al caer en ellas.                               //\n" +
 							"//                                                                                                                                                                  //\n"+
-							"//  El ganador será el primero en llegar al final del tablero, y lo tendrá que conseguir entrando exacto.                                                           //");
+							"//  El ganador será el primero en llegar al final del tablero, y lo tendrá que conseguir entrando exacto (la ficha irá rebotando hasta conseguirlo).                //");
 		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 		System.out.println("\nEscribe 0 para volver atrás y cualquier número para volver a la pantalla principal.\n");
 		volver = reader.nextInt();
@@ -136,14 +137,15 @@ public class Main {
 		Scanner reader = new Scanner (System.in);		//escáner para leer variables introducidas por el usuario.
 		int volver = 0;		//variable para volver atrás.
 		System.out.println("\n//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
-		System.out.println("//  El juego del pistolero es apto para jugar contra otro jugador o contra la IA, y es lo primero que te hace escoger. Después empezará el juego.                   //\n"+		//se muestran las instrucciones del juego de la Oca.
-							"//  Cuando empieza, los dos jugadores empiezan con 5 vidas y 0 balas. En el primer turno solo se pueden marcar las opciones de recargar o cubrirse,                 //\n" +
-							"//  ya que al no tener balas no se puede disparar. Una vez se haya recargado, si disparas con menos de 3 balas se le restará 1 de vida al oponente,                 //\n" +
+		System.out.println("//  El juego del pistolero es apto para jugar contra otro jugador o contra la IA, y es lo primero que te hace escoger. Después empezará el juego.                   //\n" +		//se muestran las instrucciones del juego de la Oca.
+							"//  Cuando empieza, los dos jugadores tinen con 5 vidas y 0 balas. En el primer turno solo se pueden marcar las opciones de recargar o cubrirse,                    //\n" +
+							"//  ya que al no tener balas no se puede disparar pero se puede cubrir para despistar al rival.                                                                     //\n" +
+							"//  Una vez se haya recargado, si disparas con menos de 3 balas se le restará 1 de vida al oponente,                                                                //\n" +
 							"//  en cambio, si disparas con 3 o más balas, si el oponente no se cubre, se le restará 3 de vida, a eso se le llama usar la metralleta.                            //\n" +
-							"//  Si el oponente se cubre y le disparas sin la metralleta no se le restara vida, pero si se le ataca con metralleta y se cubre se le restara 1 de vida.           //\n" +
+							"//  Si el oponente se cubre y le disparas sin la metralleta no se le restará vida, pero si se le ataca con metralleta y se cubre se le restará 1 de vida.           //\n" +
 							"//  Para ganar, deberás quitarle las 5 vidas al contrincante y evitar que te las quiten a ti.                                                                       //\n" +
-							"//                                                                                                                                                                  //\n"+
-							"//  Es importante que los dos jugadores sean honestos y no miren cuando el rival haga su elección en cada turno.                                                    //\n"+
+							"//                                                                                                                                                                  //\n" +
+							"//  Es importante que los dos jugadores sean honestos y no miren cuando el rival haga su elección en cada turno.                                                    //\n" +
 							"//  Finalmente, si acaba la ronda y los dos jugadores aún tienen vidas, se repetirá de nuevo con los datos actualizados y así consecutivamente                      //\n" +
 							"//  hasta que uno de los dos o los dos jugadores se queden sin vidas.                                                                                               //");
 		System.out.println("//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
@@ -169,14 +171,14 @@ public class Main {
 		int volver = 0;		//variable para volver atrás.
 		System.out.println("\n//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////");
 		System.out.println("//  El juego de lucha es bastante sencillo, los jugadores deben elegir un combatiente entre los 5 que hay.                                                          //\n"+
-							"//  Una vez escogidos, se mostraran las habilidades (ataque, escudo, velocidad y salud) de cada uno de los combatientes.                                            //\n"+
-							"//  hay que mirar esas habilidades atentamente puesto que no se van a mostrar más a lo largo de la partida,                                                         //\n"+
-							"//  y los jugadores deberán elegir su estrategia según como se va desarrollando la partida.                                                                         //\n"+
+							"//  Una vez escogidos, se mostrarán las habilidades (ataque, escudo, velocidad y salud) de cada uno de los combatientes.                                            //\n"+
+							"//  Hay que mirar esas habilidades atentamente puesto que no se van a mostrar más a lo largo de la partida,                                                         //\n"+
+							"//  y los jugadores deberán elegir su estrategia según como se vaya desarrollando la partida.                                                                       //\n"+
 							"//  Una vez mostradas las habilidades en el inicio, se pedirá a los dos jugadores que indiquen cuál es su decisión (atacar o defender).                             //\n"+
 							"//  Aquí es donde entran en juego las habilidades, si un jugador elige atacar y el otro defender, el defensor se verá “recompensado”                                //\n"+
 							"//  usando su escudo que evitará que le reste el daño directamente a su vida. En el caso de que los dos jugadores indiquen que quieren atacar,                      //\n"+
 							"//  el atacante será el jugador que tenga más velocidad y el enemigo se defenderá únicamente con su vida.                                                           //\n"+
-							"//  Por último, en el caso que los dos jugadores decidan defenderse, ninguno recibirá ni provocará ningún daño.                                                     //\n"+
+							"//  Por último, en el caso que los dos jugadores decidan defenderse, ninguno recibirá ni provocará daño.                                                            //\n"+
 							"//                                                                                                                                                                  //\n"+
 							"//  Es importante que los dos jugadores sean honestos y no miren cuando el rival haga su elección en cada turno.                                                    //\n"+
 							"//  Una vez finalizada la ronda, si ningún combatiente ha muerto, se pasará a la siguiente ronda, en caso contrario, el combatiente vencedor se proclamará ganador. //");
@@ -719,7 +721,7 @@ public class Main {
 			}else if (t[J2] == 'C' && pTJ2 <= 2 && pTJ1 == 0){
 				if(pTJ2 <= 2 && pTJ2 != 0) {
 					Thread.sleep(2000);
-					System.out.println("\n\nTu rival está en la cárcel. Vuelve a tirar.");
+					System.out.println("\n\nTu rival está en la cárcel. ¡Vuelves a tirar!");
 					pTJ2--;
 					tiradaOcaJ1(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 				}else if (pTJ2 == 0){
@@ -756,7 +758,7 @@ public class Main {
 				tiradaOcaJ2(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 			}else if (t[J2] == 'W' && pTJ2 <= 2 && pTJ1 == 0){
 				if(pTJ2 <= 2 && pTJ2 != 0) {
-					System.out.println("\n\nTu rival está en el pozo. Vuelves a tirar.");
+					System.out.println("\n\nTu rival está en el pozo. ¡Vuelves a tirar!");
 					pTJ2--;
 					tiradaOcaJ1(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 				}else if(pTJ2 == 0){
@@ -778,7 +780,7 @@ public class Main {
 		if (t[J1] == 'P' || (t[J2] == 'P' && pTJ2 == 1 && pTJ1 == 0)) {		//si ha caído a la posada o el rival está en la posada.
 			Thread.sleep(2000);
 			if(t[J1] == 'P') {
-				System.err.println("\n\nHas caído en la posada. Te quedas descansando y pierdes un turno.");
+				System.err.println("\n\n¡Has caído en la posada! Te quedas descansando y pierdes un turno.");
 				pTJ1 = 1;
 				if(pTJ2 == 1) {
 					System.out.println("\n\nQueda sin efecto porque tu rival también tiene que perder un turno.");
@@ -793,7 +795,7 @@ public class Main {
 				tiradaOcaJ2(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 			}
 			else if (t[J2] == 'P' && pTJ2 == 1 && pTJ1 == 0){
-				System.out.println("\n\nTu rival está descansando en la posada. Vuelves a tirar.");
+				System.out.println("\n\nTu rival está descansando en la posada. ¡Vuelves a tirar!");
 				pTJ2 = 0;
 				tiradaOcaJ1(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 			}
@@ -812,7 +814,7 @@ public class Main {
 	public static void comprobacionesJ1Finales(int vs, char[] t, char[] t1, char[] t2, int J1, int J2, int pTJ1, int pTJ2, int tirada1, int tirada2) throws InterruptedException{
 		if (t[J1] == 'L') {		//si ha caído en el laberinto.
 			Thread.sleep(2000);
-			System.err.println("\n\nHas caído en el laberinto, retrocedes a la casilla 30.\n");
+			System.err.println("\n\n¡Has caído en el laberinto! Retrocedes a la casilla 30.\n");
 			t1[J1]= 'O';
 			J1=29;
 			t1[J1] = 'X';
@@ -898,7 +900,7 @@ public class Main {
 				t2[J2] = 'Y';
 			}
 			Thread.sleep(2000);
-			System.out.println("\n\nDe puente a puente y tiro porque me lleva la corriente..");
+			System.out.println("\n\nDe puente a puente y tiro porque me lleva la corriente.");
 
 			for(int i = 0; i < t2.length; i++) {		//bucle for que muestra el tablero del jugador 2 / IA.
 				System.out.print(t2[i]+"| ");
@@ -966,7 +968,7 @@ public class Main {
 			}else if (t[J1] == 'C' && pTJ1 <= 2 && pTJ2 == 0){
 				if(pTJ1 <= 2 && pTJ1 != 0) {
 					Thread.sleep(2000);
-					System.out.println("\n\nTu rival está en la cárcel. Vuelve a tirar.");
+					System.out.println("\n\nTu rival está en la cárcel. ¡Vuelves a tirar!");
 					pTJ1--;
 					tiradaOcaJ2(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 				}else if (pTJ1 == 0){
@@ -1002,7 +1004,7 @@ public class Main {
 				tiradaOcaJ1(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 			}else if (t[J1] == 'W' && pTJ1 <= 2 && pTJ2 == 0){
 				if(pTJ1 <= 2 && pTJ1 != 0) {
-					System.out.println("\n\nTu rival está en el pozo. Vuelve a tirar.");
+					System.out.println("\n\nTu rival está en el pozo. ¡Vuelves a tirar!");
 					pTJ1--;
 					tiradaOcaJ2(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 				}else if (pTJ1 == 0) {
@@ -1024,7 +1026,7 @@ public class Main {
 		if (t[J2] == 'P' || (t[J1] == 'P' && pTJ1 == 1 && pTJ2 == 0)) {		//si ha caído a la posada o el rival está en la posada.
 			Thread.sleep(2000);
 			if(t[J2] == 'P') {
-				System.err.println("\n\nHas caído en la posada. Te quedas descansando y pierdes un turno.");
+				System.err.println("\n\n¡Has caído en la posada! Te quedas descansando y pierdes un turno.");
 				pTJ2 = 1;
 				if(pTJ1 == 1) {
 					System.out.println("\n\nQueda sin efecto porque tu rival también tiene que perder un turno.");
@@ -1039,7 +1041,7 @@ public class Main {
 				tiradaOcaJ1(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 			}
 			else if (t[J1] == 'P' && pTJ1 == 1 && pTJ2 == 0){
-				System.out.println("\n\nTu rival está descansando en la posada. Vuelves a tirar.");
+				System.out.println("\n\nTu rival está descansando en la posada. ¡Vuelves a tirar!");
 				pTJ1 = 0;
 				tiradaOcaJ2(vs, t, t1, t2, J1, J2, pTJ1, pTJ2, tirada1, tirada2);
 			}
@@ -1058,7 +1060,7 @@ public class Main {
 	public static void comprobacionesJ2Finales(int vs, char[] t, char[] t1, char[] t2, int J1, int J2, int pTJ1, int pTJ2, int tirada1, int tirada2) throws InterruptedException{
 		if (t[J2] == 'L') {		//si ha caído en el laberinto.
 			Thread.sleep(2000);
-			System.err.println("\n\nHas caído en el laberinto, retrocedes a la casilla 30.\n");
+			System.err.println("\n\n¡Has caído en el laberinto! Retrocedes a la casilla 30.\n");
 			t2[J2] = 'O';
 			J2 = 29;
 			t2[J2] = 'Y';
@@ -1085,15 +1087,13 @@ public class Main {
 	
 	//**************************************************************************************************************
 	//** Nombre de la función: pistolero
-	//** Explicación de lo que hace la función: Esta funcion inicializa las variables que necesitare en el programa,
-	//** y te muestra lo que tienes que hacer para jugar y si quieres jugar 
-	//** contra la IA o contra otro jugador.
+	//** Explicación de lo que hace la función: Esta función inicializa las variables que necesitaré en el programa
 	//** Parámetros de entrada:-
-	//** Parámetros de salida:Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
+	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//**************************************************************************************************************
 	public static void pistolero(int vs) throws InterruptedException {
 		Scanner reader	= new Scanner(System.in); //se crea el scanner para introducir contra quien se quiere jugar.
-		int municion1=0;//todas estas variables son las que se van modificando según el paso de funciones
+		int municion1=0;		//todas estas variables son las que se van modificando según el paso de funciones
 		int municion2=0;
 		int vida1=5;
 		int vida2=5;
@@ -1102,20 +1102,20 @@ public class Main {
 		int ia=0;
 			
 		turnoJ1(municion1, municion2, vida1, vida2, el1, el2, ia , vs);
-		//se llama a la funcion turnoJ1 para empezar las rondas
+		//se llama a la función turnoJ1 para empezar las rondas
 	}
 	
 	//************************************************************************************************************
 	//** Nombre de la función: turnoJ1
-	//** Explicación de lo que hace la función: Esta funcion le pide al jugador 1 que escoja lo que quiere hacer
+	//** Explicación de lo que hace la función: Esta función le pide al jugador 1 que escoja lo que quiere hacer
 	//** y controla que los valores no sean erróneos.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de Salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//************************************************************************************************************
 	public static void turnoJ1(int municion1,int municion2,int vida1,int vida2,int el1,int el2, int ia, int vs) throws InterruptedException {
-		Scanner reader	= new Scanner(System.in);//se crea el scanner
-		System.out.println("///////////////////////////////////////////////////////////////////////////////////////");//aqui se muestra lo que se debe introducir
-		System.out.println("/Para recargar introduce 0.                                                           /");// para hacer según que cosa
+		Scanner reader	= new Scanner(System.in);		//se crea el scanner
+		System.out.println("///////////////////////////////////////////////////////////////////////////////////////");		//aquí se muestra lo que se debe introducir
+		System.out.println("/Para recargar introduce 0.                                                           /");		// para hacer según que cosa
 		System.out.println("/Para disparar introduce 1.                                                           /");
 		System.out.println("/Para usar el escudo introduce 2.                                                     /");
 		System.out.println("///////////////////////////////////////////////////////////////////////////////////////\n");
@@ -1123,7 +1123,7 @@ public class Main {
 		System.err.println("-----------------------------------------------------------------------------------------------------------");
 		Thread.sleep(100);
 		System.out.println("Jugador 1, elige lo que quieres hacer:");
-		el1=reader.nextInt();//se pide por pantalla lo que quiere hacer el jugador 1
+		el1=reader.nextInt();		//se pide por pantalla lo que quiere hacer el jugador 1
 		while (el1<0 || el1>2) {
 			System.err.println("El valor no es válido, introduce de nuevo:");
 			el1=reader.nextInt();
@@ -1133,34 +1133,34 @@ public class Main {
 			el1=reader.nextInt();
 		}
 		if(vs == 1) {
-			//se llama a la funcion turnoJ2
+			//se llama a la función turnoJ2
 			turnoJ2(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
 		}
 		else {
-			//se llama a la funcion IA
+			//se llama a la función IA
 			IA(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
 		}
 	}
 	
 	//*****************************************************************************************
 	//** Nombre de la función: IA
-	//** Explicación de lo que hace la función: Esta funcion le otorga a la variable ia un 
+	//** Explicación de lo que hace la función: Esta función le otorga a la variable ia un 
 	//** valor random entre el 0 y el 2 mientras pasan los turnos
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//*****************************************************************************************
 	public static void IA(int municion1,int municion2,int vida1,int vida2,int el1,int el2, int ia, int vs) throws InterruptedException {
-		Random ale=new Random();//se crea un random
+		Random ale=new Random();		//se crea un random
 		
-		ia=ale.nextInt(3);//se le da a la variable ia un valor random entre el 0 y el 2
+		ia=ale.nextInt(3);		//se le da a la variable ia un valor random entre el 0 y el 2
 		
-		//se llama a la funcion turnoJ2
+		//se llama a la función turnoJ2
 		turnoJ2(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
 	}	
 
 	//**********************************************************************************************************
 	//** Nombre de la función: turnoJ2
-	//** Explicación de lo que hace la función: Esta funcion le pide al jugador 2 que escoja lo que quiere hacer
+	//** Explicación de lo que hace la función: Esta función le pide al jugador 2 que escoja lo que quiere hacer
 	//** y controla que los valores no sean erróneos. Depende del vs
 	//** que se escoja se hará random o se hará manualmente por el jugador 2.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1168,7 +1168,7 @@ public class Main {
 	//**********************************************************************************************************
 	public static void turnoJ2(int municion1,int municion2,int vida1,int vida2,int el1,int el2, int ia, int vs) throws InterruptedException {
 		Scanner reader	= new Scanner(System.in);
-		Random ale=new Random();//se introducen un random y un scanner por si se juga vs ia o vs j2
+		Random ale=new Random();		//se introducen un random y un scanner por si se juga vs ia o vs j2
 		if(vs==2) {//si el vs es 2 se pide que la ia escoja
 			el2=ia;
 			System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIA, elige lo que quieres hacer:");
@@ -1192,15 +1192,15 @@ public class Main {
 				el2=0;	
 			}
 		}
-		if(vs==2) {//se muestra lo que la ia ha elegido
+		if(vs==2) {		//se muestra lo que la ia ha elegido
 			System.out.println("La IA ha introducido " + el2);
 		}
-			comparacion(municion1, municion2, vida1, vida2, el1, el2, ia , vs);		//se llama a la funcion comparacion
+			comparacion(municion1, municion2, vida1, vida2, el1, el2, ia , vs);		//se llama a la función comparacion
 	}
 	
 	//*******************************************************************************************
 	//** Nombre de la función: comparacion
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando los dos 
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando los dos 
 	//** jugadores recargan
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1211,7 +1211,7 @@ public class Main {
 			municion2=municion2+1;
 			
 			System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-			if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+			if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 				vida1=0;
 			}	
 			if(vida2<0) {
@@ -1231,14 +1231,14 @@ public class Main {
 			ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
 		}
 		
-		else {//si no se cumple lo anterior se llama a la funcion comparaciona
+		else {		//si no se cumple lo anterior se llama a la función comparaciona
 			comparaciona(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
 	}
 	
 	//*************************************************************************************************
 	//** Nombre de la función: comparaciona
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** dispara con tres de munición o más y el jugador 2 recarga.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1250,7 +1250,7 @@ public class Main {
 				municion1=municion1-3;
 				municion2=municion2+1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
@@ -1265,7 +1265,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacionb
+			}//si se cumple lo anterior se llama a la función ganador y si no a la comparacionb
 			else {
 				comparacionb(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1277,7 +1277,7 @@ public class Main {
 
 	//*************************************************************************************************
 	//** Nombre de la función: comparacionb
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** dispara con tres de munición o más y el jugador 2 dispara con
 	//** menos de tres de munición.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1291,12 +1291,12 @@ public class Main {
 				municion1=municion1-3;
 				municion2=municion2-1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("¡El jugador 1 usa la metralleta!. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 				if(vs==1) {
 					System.out.println("¡El jugador 2 dispara!. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1306,7 +1306,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacionc
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparacionc
 			else {
 				comparacionc(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1317,7 +1317,7 @@ public class Main {
 
 	//*************************************************************************************************
 	//** Nombre de la función: comparacionc
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** dispara con tres de munición o más y el jugador 2 se cubre
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1328,12 +1328,12 @@ public class Main {
 				municion1=municion1-3;
 				vida2=vida2-1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("¡El jugador 1 usa la metralleta!. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 				if(vs==1) {
 					System.out.println("El jugador 2 se cubre. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1343,7 +1343,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparaciond
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparaciond
 			else {
 				comparaciond(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1355,7 +1355,7 @@ public class Main {
 	
 	//*************************************************************************************************
 	//** Nombre de la función: comparaciond
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** dispara con tres de munición o más y el jugador 2 dispara 
 	//** también con tres o más de munición.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1369,12 +1369,12 @@ public class Main {
 				municion1=municion1-3;
 				municion2=municion2-3;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("¡El jugador 1 usa la metralleta!. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 				if(vs==1) {
 					System.out.println("¡El jugador 2 usa la metralleta!. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1384,7 +1384,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no se llama a comparacion1
+			}		//si se cumple lo anterior se llama a la función ganador y si no se llama a comparacion1
 			else {
 				comparacion1(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1395,7 +1395,7 @@ public class Main {
 	
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion1
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** dispara con menos de tres de munición y el jugador 2 
 	//** recarga.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1408,12 +1408,12 @@ public class Main {
 				municion1=municion1-1;
 				municion2=municion2+1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("¡El jugador 1 dispara!. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 				if(vs==1) {
 					System.out.println("El jugador 2 recarga. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1423,7 +1423,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparadion2
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparadion2
 			else {
 				comparacion2(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1435,7 +1435,7 @@ public class Main {
 
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion2
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** dispara con menos de tres de munición y el jugador 2 dispara
 	//** también con menos de tres de munición.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1449,12 +1449,12 @@ public class Main {
 				municion1=municion1-1;
 				municion2=municion2-1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 					}	
 				if(vida2<0) {
 					vida2=0;
-					}//se muestra la situacion de cada jugador
+					}		//se muestra la situacion de cada jugador
 				System.out.println("¡El jugador 1 dispara!. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 				if(vs==1) {
 					System.out.println("¡El jugador 2 dispara!. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1464,7 +1464,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llamara a la funcion ganador y si no a la comparacion3
+			}		//si se cumple lo anterior se llamara a la función ganador y si no a la comparacion3
 			else {
 				comparacion3(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1475,7 +1475,7 @@ public class Main {
 
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion3
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** dispara con menos de tres de munición y el jugador 2 
 	//** se cubre.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1486,12 +1486,12 @@ public class Main {
 			if(municion1>0 && el2==2 && municion1<3) {
 				municion1=municion1-1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("¡El jugador 1 dispara!. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 				if(vs==1) {
 					System.out.println("El jugador 2 se cubre. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1501,7 +1501,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacionx
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparacionx
 			else {
 				comparacionx(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1513,7 +1513,7 @@ public class Main {
 
 	//*************************************************************************************************
 	//** Nombre de la función: comparacionx
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 2
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 2
 	//** dispara con tres de munición o más y el jugador 1
 	//** recarga.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1526,12 +1526,12 @@ public class Main {
 				vida1=vida1-3;
 				municion1=municion1+1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("El jugador 1 recarga. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");
 				if(vs==1) {
 					System.out.println("¡El jugador 2 usa la metralleta!. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1541,7 +1541,7 @@ public class Main {
 				}	
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparaciony
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparaciony
 			else {
 				comparaciony(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}	
@@ -1553,7 +1553,7 @@ public class Main {
 
 	//*************************************************************************************************
 	//** Nombre de la función: comparaciony
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 2
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 2
 	//** dispara con tres de munición o más y el jugador 1
 	//** se cubre.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1565,12 +1565,12 @@ public class Main {
 				municion2=municion2-3;
 				vida1=vida1-1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("El jugador 1 se cubre. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");
 				if(vs==1) {
 					System.out.println("¡El jugador 2 usa la metralleta!. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1580,7 +1580,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);	
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacion4
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparacion4
 			else {
 				comparacion4(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1592,7 +1592,7 @@ public class Main {
 	
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion4
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 2
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 2
 	//** dispara con menos de tres de munición y el jugador 1 recarga.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1604,12 +1604,12 @@ public class Main {
 				municion2=municion2-1;
 				municion1=municion1+1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada situacion
+				}		//se muestra la situacion de cada situacion
 				System.out.println("El jugador 1 recarga. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");
 				if(vs==1) {
 					System.out.println("¡El jugador 2 dispara!. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1619,7 +1619,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacion6
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparacion5
 			else {
 				comparacion5(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1631,7 +1631,7 @@ public class Main {
 	
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion5
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 2
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 2
 	//** dispara con tres de munición o más y el jugador 1 dispara con
 	//** menos de tres de munición.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1645,12 +1645,12 @@ public class Main {
 				municion1=municion1-1;
 				municion2=municion2-3;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("¡El jugador 1 dispara!. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 				if(vs==1) {
 					System.out.println("¡El jugador 2 usa la metralleta!. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1660,7 +1660,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacionc
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparacion6
 			else {
 				comparacion6(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1671,7 +1671,7 @@ public class Main {
 	
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion6
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 2
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 2
 	//** dispara con menos de tres de munición y el jugador 1 se cubre.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1681,7 +1681,7 @@ public class Main {
 			if(municion2>0 && el1==2) {
 				municion2=municion2-1;
 				System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
@@ -1696,7 +1696,7 @@ public class Main {
 				}
 				System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 				ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);		
-			}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacion7
+			}		//si se cumple lo anterior se llama a la función ganador y si no a la comparacion7
 			else {
 				comparacion7(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 			}
@@ -1708,7 +1708,7 @@ public class Main {
 		
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion7
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** se cubre y el jugador 2 también se cubre.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1716,12 +1716,12 @@ public class Main {
 	public static void comparacion7(int municion1,int municion2,int vida1,int vida2,int el1,int el2, int ia, int vs) throws InterruptedException {
 		if(el1==2 && el2==2) { 
 			System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-			if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+			if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 				vida1=0;
 			}	
 			if(vida2<0) {
 				vida2=0;
-			}//se muestra la situacion de cada jugador
+			}		//se muestra la situacion de cada jugador
 			System.out.println("El jugador 1 se cubre. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 			if(vs==1) {
 				System.out.println("El jugador 2 se cubre. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1731,7 +1731,7 @@ public class Main {
 			}
 			System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 			ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);
-		}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacion8
+		}		//si se cumple lo anterior se llama a la función ganador y si no a la comparacion8
 		else {
 			comparacion8(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 		}
@@ -1739,7 +1739,7 @@ public class Main {
 	
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion8
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 1
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 1
 	//** se cubre y el jugador 2 recarga.
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1748,12 +1748,12 @@ public class Main {
 		if(el1==2 && el2==0) {
 			municion2=municion2+1;
 			System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-			if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+			if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 				vida1=0;
 			}	
 			if(vida2<0) {
 				vida2=0;
-			}//se muestra la situacion de cada jugador
+			}		//se muestra la situacion de cada jugador
 			System.out.println("El jugador 1 se cubre. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 			if(vs==1) {
 				System.out.println("El jugador 2 recarga. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1763,7 +1763,7 @@ public class Main {
 			}
 			System.out.println("//////////////////////////////////////////////////////////////////////////////\n\n");
 			ganador(municion1, municion2, vida1, vida2, el1, el2, ia, vs);	
-		}//si se cumple lo anterior se llama a la funcion ganador y si no a la comparacion9
+		}		//si se cumple lo anterior se llama a la función ganador y si no a la comparacion9
 		else {
 		comparacion9(municion1, municion2, vida1, vida2, el1, el2, ia , vs);	
 		}
@@ -1771,7 +1771,7 @@ public class Main {
 	
 	//*************************************************************************************************
 	//** Nombre de la función: comparacion9
-	//** Explicación de lo que hace la función: Esta funcion comprueba lo que pasa cuando el jugador 2
+	//** Explicación de lo que hace la función: Esta función comprueba lo que pasa cuando el jugador 2
 	//** se cubre y el jugador 1 recarga
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
@@ -1780,12 +1780,12 @@ public class Main {
 		if(el2==2 && el1==0) {
 			municion1=municion1+1;
 			System.out.println("\n\n//////////////////////////////////////////////////////////////////////////////");
-				if(vida1<0) {//si la vida1 o 2 es menor a 0 se mostrara igualmente un 0
+				if(vida1<0) {		//si la vida1 o 2 es menor a 0 se mostrará igualmente un 0
 					vida1=0;
 				}	
 				if(vida2<0) {
 					vida2=0;
-				}//se muestra la situacion de cada jugador
+				}		//se muestra la situacion de cada jugador
 				System.out.println("El jugador 1 recarga. Le quedan "+ vida1+" vidas y "+ municion1+ " balas");	
 				if(vs==1) {
 					System.out.println("El jugador 2 se cubre. Le quedan "+ vida2+ " vidas y "+ municion2+" balas");
@@ -1801,12 +1801,12 @@ public class Main {
 	
 	//**********************************************************************************************************
 	//** Nombre de la función: ganador
-	//** Explicación de lo que hace la función: Esta funcion comprueba quien ha ganado según las vidas que tienen
+	//** Explicación de lo que hace la función: Esta función comprueba quien ha ganado según las vidas que tienen
 	//** Parámetros de entrada: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//** Parámetros de salida: Variables municion1, municion2, vida1, vida2, el1, el2, ia, vs
 	//**********************************************************************************************************
 	public static void ganador(int municion1,int municion2,int vida1,int vida2,int el1,int el2, int ia, int vs) throws InterruptedException {
-		if (vida1<=0 || vida2<=0) {//si la vida es igual o menor a 0 se muestra quien gana con las comparaciones
+		if (vida1<=0 || vida2<=0) {		//si la vida es igual o menor a 0 se muestra quien gana con las comparaciones
 			System.out.println("///////////////////");
 			System.out.println("   FIN DEL JUEGO");
 			if(vida1==vida2){
@@ -1856,7 +1856,7 @@ public class Main {
 		personajeToni();
 		System.out.println("\n5. Tere\n");
 		personajeTere();
-		//Llamada a la funcion de elección para el jugador 1
+		//Llamada a la función de elección para el jugador 1
 		jugador1(vs);
 	}
 	
@@ -1882,7 +1882,7 @@ public class Main {
 			combatiente1 = reader.nextInt();
 		}
 		
-		//Llamada a la funcion de elección para el jugador 2
+		//Llamada a la función de elección para el jugador 2
 		jugador2(combatiente1, combatiente2, vs);
 	}
 	
@@ -1919,7 +1919,7 @@ public class Main {
 			}while (comb2 == comb1);
 			System.out.println("El jugador 1 ha elegido el combatiente "+comb1+" y la IA ha elegido el combatiente "+comb2+".");
 		}		
-		//Llamada a la funcion que muestra las caracteristicas de los dos combatientes elegidos.
+		//Llamada a la función que muestra las caracteristicas de los dos combatientes elegidos.
 		creacionCaracteristicas(vs, comb1, comb2);
 	}
 	
@@ -2081,7 +2081,7 @@ public class Main {
 			System.out.println("\nJugador 2 elige:\n  DEFENDER.");
 		}
 		
-		//Llamada a la funcion que muestra lo que pasa en el campo de batalla para el jugador 1, según las elecciones y las caracteristicas de los combatientes.
+		//Llamada a la función que muestra lo que pasa en el campo de batalla para el jugador 1, según las elecciones y las caracteristicas de los combatientes.
 		jugador1(eleccion1, eleccion2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 	}
 	
@@ -2110,13 +2110,13 @@ public class Main {
 			else {
 				System.out.println("La IA no resiste con su escudo porque decide atacar, asi que pierde "+ataque+" de vida.");
 			}
-			System.out.println("Le queda "+vida2+" de vida");
+			System.out.println("Le queda "+vida2+" de vida.");
 			//Actualizamos el valor de la salud del combatiente
 			s2 = vida2;
-			//Llamada a la funcion que muestra lo que pasa en el campo de batalla para el jugador 2, según las elecciones y las caracteristicas de los combatientes.
+			//Llamada a la función que muestra lo que pasa en el campo de batalla para el jugador 2, según las elecciones y las caracteristicas de los combatientes.
 			jugador2(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 		}
-		//En caso de no cumplir se siguen comprobando en la siguiente funcion
+		//En caso de no cumplir se siguen comprobando en la siguiente función
 		else {
 			jugador1_1(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 		}
@@ -2136,10 +2136,10 @@ public class Main {
 			System.out.println("Los dos eligen defender, así que nadie recibe ni hace daño.");
 			vida1 = s1;
 			vida2 = s2;
-			//Llamada a la funcion que muestra lo que pasa en el campo de batalla para el jugador 2, según las elecciones y las caracteristicas de los combatientes.
+			//Llamada a la función que muestra lo que pasa en el campo de batalla para el jugador 2, según las elecciones y las caracteristicas de los combatientes.
 			jugador2(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 		}
-		//En caso de no cumplir se siguen comprobando en la siguiente funcion
+		//En caso de no cumplir se siguen comprobando en la siguiente función
 		else {
 			jugador1_2(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 		}
@@ -2172,12 +2172,12 @@ public class Main {
 			}else {
 				System.out.println("La IA resiste con su escudo, aun así pierde "+ataque+" de vida.");
 			}
-			System.out.println("Le queda "+vida2+" de vida");
+			System.out.println("Le queda "+vida2+" de vida.");
 			//Actualizamos el valor de la salud del combatiente
 			s2 = vida2;
-			//Llamada a la funcion que muestra lo que pasa en el campo de batalla para el jugador 2, según las elecciones y las caracteristicas de los combatientes.
+			//Llamada a la función que muestra lo que pasa en el campo de batalla para el jugador 2, según las elecciones y las caracteristicas de los combatientes.
 			jugador2(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
-		}else {		//En caso de no cumplir se siguen comprobando en la siguiente funcion
+		}else {		//En caso de no cumplir se siguen comprobando en la siguiente función
 			jugador1_3(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 		}
 	}
@@ -2214,7 +2214,7 @@ public class Main {
 			vida2 = s2;
 		}
 		s2 = vida2;		//Actualizamos el valor de la salud del combatiente
-		//Llamada a la funcion que muestra lo que pasa en el campo de batalla para el jugador 2, según las elecciones y las caracteristicas de los combatientes.
+		//Llamada a la función que muestra lo que pasa en el campo de batalla para el jugador 2, según las elecciones y las caracteristicas de los combatientes.
 		jugador2(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 	}
 	
@@ -2245,10 +2245,10 @@ public class Main {
 			System.out.println("Le queda "+vida1+" de vida.");
 			//Actualizamos el valor de la salud del combatiente
 			s1 = vida1;
-			//Llamada a la funcion que muestra si hay o no un ganador
+			//Llamada a la función que muestra si hay o no un ganador
 			ganador(a1, e1, s1, v1, a2, e2, s2, v2, vida1, vida2, i, vs);
 		}
-		//En caso de no cumplir se siguen comprobando en la siguiente funcion
+		//En caso de no cumplir se siguen comprobando en la siguiente función
 		else {
 			jugador2_1(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 		}
@@ -2266,10 +2266,10 @@ public class Main {
 			System.out.println("Los dos eligen defender, así que nadie recibe ni hace daño.");
 			vida1 = s1;
 			vida2 = s2;
-			//Llamada a la funcion que muestra si hay o no un ganador
+			//Llamada a la función que muestra si hay o no un ganador
 			ganador(a1, e1, s1, v1, a2, e2, s2, v2, vida1, vida2, i, vs);
 		}
-		//En caso de no cumplir se siguen comprobando en la siguiente funcion
+		//En caso de no cumplir se siguen comprobando en la siguiente función
 		else {
 			jugador2_2(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 		}
@@ -2303,10 +2303,10 @@ public class Main {
 			System.out.println("Le queda "+vida1+" de vida.");
 			//Actualizamos el valor de la salud del combatiente
 			s1 = vida1;
-			//Llamada a la funcion que muestra si hay o no un ganador
+			//Llamada a la función que muestra si hay o no un ganador
 			ganador(a1, e1, s1, v1, a2, e2, s2, v2, vida1, vida2, i, vs);
 		}
-		//En caso de no cumplir se siguen comprobando en la siguiente funcion
+		//En caso de no cumplir se siguen comprobando en la siguiente función
 		else {
 			jugador2_3(el1, el2, a1, e1, s1, v1, a2, e2, s2, v2, ataque, vida1, vida2, i, vs);
 		}
@@ -2335,21 +2335,21 @@ public class Main {
 			if (vida1 <= 0) {
 				vida1 = 0;
 			}
-			System.out.println("JUGADOR 1 resiste con su escudo, aun asi pierde "+ataque+" de vida");
-			System.out.println("Le queda "+vida1+" de vida");	
+			System.out.println("JUGADOR 1 resiste con su escudo, aun asi pierde "+ataque+" de vida.");
+			System.out.println("Le queda "+vida1+" de vida.");	
 		}
 		else {
 			vida1 = s1;
 		}
 		//Actualizamos el valor de la salud del combatiente
 		s1 = vida1;
-		//Llamada a la funcion que muestra si hay o no un ganador
+		//Llamada a la función que muestra si hay o no un ganador
 		ganador(a1, e1, s1, v1, a2, e2, s2, v2, vida1, vida2, i, vs);
 	}
 	
 	//****************************************************************************************************************************************
 	//** Nombre de la función: ganador
-	//** Explicación de lo que hace la función: comprueba si se ha terminado el juego, en caso contrario, vuelve a la funcion turnos del inicio
+	//** Explicación de lo que hace la función: comprueba si se ha terminado el juego, en caso contrario, vuelve a la función turnos del inicio
 	//** Parámetros de entrada: Variables a1, e1, s1, v1, a2, e2, s2, v2, vida1, vida2, i, vs.
 	//** Parámetros de salida: Variables a1, e1, s1, v1, a2, e2, s2, v2, vida1, vida2, i, vs.
 	//****************************************************************************************************************************************
@@ -2376,7 +2376,7 @@ public class Main {
 				victoria();
 			}
 		}
-		//En caso contrario se vuelve a ejecutar la funcion turnos que inicia la siguiente ronda
+		//En caso contrario se vuelve a ejecutar la función turnos que inicia la siguiente ronda
 		else {
 			
 			turnos(a1, e1, s1, v1, a2, e2, s2, v2, vida1, vida2, i, vs);
